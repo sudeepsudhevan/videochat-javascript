@@ -3,7 +3,13 @@ var myStream
 var peerList = []
 
 // This function will initializing the peer
-function init(userId) {
+function init() {
+    var userId = document.getElementById('userId').value;
+    if (!userId) {
+        console.log('Please enter a valid user ID.');
+        return;
+    } // Replace with your desired user ID
+
     peer = new Peer(userId)
     peer.on('open', (id) => {
         console.log(id + "Connected");
@@ -32,7 +38,12 @@ function listenToCall() {
 }
 
 //This connection will be called when we try to make a call
-function makeCall(receiverId) {
+function makeCall() {
+    var receiverId = document.getElementById('receiverId').value;
+    if (!receiverId) {
+        console.log('Please enter a valid receiver ID.');
+        return;
+    }
     navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
         myStream = stream
         addLocalVideo(stream)

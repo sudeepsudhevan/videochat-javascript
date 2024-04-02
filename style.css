@@ -28,3 +28,7 @@ html, body{
     border-radius: 16px;
     object-fit: cover;
 }
+
+.button-class{
+    background-color: black;
+}
